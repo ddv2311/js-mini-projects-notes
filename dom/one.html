@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOOM</title>
+</head>
+<body style="background-color: #414141; color: white;">
+    <div class="parent">
+        <div class="day">Mon</div>
+
+        <div class="day">Tues</div>
+        <!-- fafaef -->
+        <div class="day">Wed</div>
+        <div class="day">Thurs</div>
+    </div>
+</body>
+<script>
+    const parent =document.querySelector('.parent');
+    console.log(parent)
+    console.log(parent.children[1].innerHTML);
+    for(let i=0;i<parent.children.length;i++){
+        console.log(parent.children[i].innerHTML)
+    }
+    parent.children[1].style.color = "green"
+    console.log(parent.firstElementChild);
+    //from any of the elemnt we can go back to the parent elemnt and also we can traverse to the next sibling present
+    const day1 = document.querySelector('.day');
+
+    console.log(day1);
+    console.log(day1.parentElement)
+    console.log(day1.nextElementSibling);
+    console.log("CHILDNODES-: ",parent.childNodes);
+
+    </script>
+</html>

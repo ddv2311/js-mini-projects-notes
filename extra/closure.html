@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: 414141;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+<script>
+    //lexcial scope means inner function can use outer functions properties
+    //closure means whole lexical scope of the function
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); //here mozialla is present in scope of outer function but inner function can use it as its lexical scoping
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;
+    }
+
+    const myFunc = makeFunc();//here copy of function is not made but the whole lexical scope of the function is taken here
+    //this is called closure
+    myFunc();
+
+</script>
+<script>
+    // document.getElementById('orange').onclick = function(){
+    //     document.body.style.backgroundColor = 'orange'
+    // }
+    // document.getElementById('green').onclick = function(){
+    //     document.body.style.backgroundColor = 'green'
+    // }
+    //its  noot practically possible to make function everytime thus we will make function
+    function clickHandler(color){
+      //  document.body.style.backgroundColor = `${color}`
+
+        return function(){
+            document.body.style.backgroundColor = `${color}`//thus by the concpet of lexical scoping we can access color and send whole lexical scope of function(closure) thus onclik will also work
+
+        }
+    }
+
+
+    // document.getElementById('orange').onclick = clickHandler//this will not work as we have given reference but it needs whole function
+    // document.getElementById('orange').onclick = clickHandler('orange')//now it will set the color without clicking the button
+    //this here we will use closure
+    document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")//now they will work fine as all need satisfied
+
+</script>
+</script>
+</html>

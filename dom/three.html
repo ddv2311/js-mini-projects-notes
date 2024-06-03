@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: white;">
+    <ul class="language">
+        <li>JS</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(lang){
+        const li = document.createElement('li')
+        li.innerHTML = `${lang}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("TS")
+
+    function addopt(lang){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(lang))
+        document.querySelector('.language').appendChild(li)
+    }
+    addopt("GO")
+
+    //NOW EDIT
+   const secondlang =  document.querySelector("li:nth-child(2)")
+  // secondlang.innerHTML ="MOJO"
+  const newli = document.createElement('li')
+  newli.textContent = "MOJO ddv"
+  secondlang.replaceWith(newli)
+//we can directly change the whole outer hmtl
+  const firstlang = document.querySelector('li:first-child')
+  firstlang.outerHTML = '<li>TypeScript</li>'
+  //REMOVE
+  const last = document.querySelector('li:last-child')
+  last.remove()
+</script>
+</html>
